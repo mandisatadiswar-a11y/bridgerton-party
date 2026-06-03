@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandisa’s Digital Ball — Guestbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Sloop+Script+One&family=Symphony&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="scene" id="guestbook-page">
+      <div class="parchment-card guestbook-card">
+        <div class="title-group">
+          <h2>Digital Guestbook</h2>
+          <p>Share your well wishes for Mandisa's 22nd Birthday</p>
+        </div>
+        <form id="guestbook-form">
+          <label>
+            Your Name
+            <input type="text" id="guest-name" placeholder="E.g. Lady Whistledown" required />
+          </label>
+          <label>
+            Your Message
+            <textarea id="guest-message" placeholder="Your kind note goes here..." rows="5" required></textarea>
+          </label>
+          <button class="btn gold-btn" type="submit">Send your well wishes ✨</button>
+        </form>
+        <div class="guestbook-entries" id="entries" style="display:none"></div>
+        <div style="display:flex;gap:.5rem;justify-content:center;margin-top:1rem;">
+          <button class="btn gold-btn" id="owner-btn" type="button">Owner: View Messages</button>
+        </div>
+        <div class="compatibility-note" id="compatibility-note-guestbook" style="margin-top:1rem;">
+          Tip: Mobile and some desktop browsers require a tap to allow sound. If the music stays silent, tap anywhere on the page.
+        </div>
+        
+        <div id="owner-modal" class="modal hidden" aria-hidden="true">
+          <div class="modal-content">
+            <h3>Guestbook Entries</h3>
+            <div id="owner-entries" style="max-height:50vh;overflow:auto;margin-top:1rem"></div>
+            <div style="display:flex;gap:.5rem;justify-content:center;margin-top:1rem">
+              <button class="btn gold-btn" id="export-entries">Export</button>
+              <button class="btn" id="clear-entries">Clear All</button>
+              <button class="btn" id="close-owner-modal">Close</button>
+            </div>
+          </div>
+        </div>
+        <!-- Opening audio continues here so the music can persist until Continue is clicked -->
+        <audio id="opening-audio" autoplay loop>
+          <source src="../assets/audio/opening.mp3" type="audio/mpeg" />
+        </audio>
+        <button class="btn gold-btn" id="guestbook-closing-btn" style="margin-top: 1.5rem;">Continue</button>
+      </div>
+    </div>
+    <script src="../script.js"></script>
+  </body>
+</html>

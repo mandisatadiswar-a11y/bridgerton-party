@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandisa’s Digital Ball — Envelope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <div class="envelope-stage">
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body"></div>
+          <div class="letter" id="letter">
+            <p class="letter-heading">Dearest guest,</p>
+            <p>
+              I am most delighted to welcome you to Mandisa’s Digital Ball. Please
+              join me for a refined evening of music, wishes, and thoughtful
+              celebration.
+            </p>
+            <p class="letter-signature">With all my fondness, Mandisa</p>
+          </div>
+        </div>
+        <!-- Envelope video (plays when envelope opens) -->
+        <video id="envelope-video" class="envelope-video" playsinline preload="auto" autoplay muted poster="../assets/assets/ladywhitsledown.jpeg" style="display:none; max-width:640px; width:100%; margin-top:1.25rem; border-radius:12px;">
+          <source src="../assets/video/envelop.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div class="compatibility-note" id="compatibility-note-envelope">
+          Note: Some browsers require a tap before sound will play. If audio remains silent, tap anywhere on the page.
+        </div>
+
+        <!-- Opening audio: will play during envelope -> guestbook until user continues -->
+        <audio id="opening-audio" autoplay loop>
+          <source src="../assets/audio/opening.mp3" type="audio/mpeg" />
+        </audio>
+        <button class="btn gold-btn" id="proceed-btn">Proceed to the celebration</button>
+      </div>
+    </div>
+
+    <!-- Optional audio files: add bridgerton-music.mp3 and mandisa-voice.mp3 to assets/ if you want background music and a voice greeting -->
+    <script src="../script.js"></script>
+  </body>
+</html>
