@@ -151,28 +151,26 @@ if (guestbookForm && entries) {
 }
 
 // Owner-only view: show modal with entries after passphrase check
-if (ownerBtn) {
-  ownerBtn.addEventListener('click', () => {
-    const storedPass = localStorage.getItem('bridgertonGuestbookOwnerPass');
-    if (!storedPass) {
-      const newPass = prompt('Create an owner passphrase to protect guestbook entries (stored locally on this browser):');
-      if (!newPass) return;
-      localStorage.setItem('bridgertonGuestbookOwnerPass', newPass);
-      alert('Passphrase saved locally. Click Owner again and enter it to view entries.');
-      return;
-    }
+const OWNER_PASSWORD = '2004';
+
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && e.key === 'O') {
+    e.preventDefault();
     const attempt = prompt('Enter owner passphrase:');
-    if (attempt !== storedPass) {
+    if (attempt !== OWNER_PASSWORD) {
       alert('Incorrect passphrase.');
       return;
     }
-    // success
     if (ownerModal) {
       ownerModal.classList.remove('hidden');
       ownerModal.setAttribute('aria-hidden', 'false');
     }
     renderOwnerEntries();
-  });
+  }
+});
+
+if (ownerBtn) {
+  ownerBtn.style.display = 'none';
 }
 
 if (closeOwnerModalBtn) {

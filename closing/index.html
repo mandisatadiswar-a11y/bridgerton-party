@@ -21,10 +21,24 @@
       </div>
     </div>
 
-    <audio id="closing-audio" autoplay>
-      <source src="../assets/audio/closing.mp4" type="audio/mp4" />
-    </audio>
+    <video id="closing-audio" autoplay style="display:none;">
+      <source src="../assets/audio/closing.mp4" type="video/mp4" />
+    </video>
 
     <script src="../script.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const closingAudio = document.getElementById('closing-audio');
+        if (closingAudio) {
+          closingAudio.muted = false;
+          closingAudio.play().catch(() => {
+            // If autoplay is blocked, require user interaction
+            document.body.addEventListener('click', () => {
+              closingAudio.play().catch(() => {});
+            }, { once: true });
+          });
+        }
+      });
+    </script>
   </body>
 </html>
